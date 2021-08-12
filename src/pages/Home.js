@@ -12,6 +12,8 @@ const Home = () => {
 
   const isShowsearch = searchOption === 'shows';
 
+
+
   const onSearch = () => {
     // https://api.tvmaze.com/search/shows?q=men
 
