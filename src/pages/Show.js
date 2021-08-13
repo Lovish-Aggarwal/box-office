@@ -1,6 +1,11 @@
 /* eslint-disable no-unused-vars */
+/* eslint-disable no-underscore-dangle */
 import React, { useReducer, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Cast from '../components/show/Cast';
+import Details from '../components/show/Details';
+import Seasons from '../components/show/Seasons';
+import ShowMainData from '../components/show/ShowMainData';
 import { apiGet } from '../misc/config';
 
 const reducer = (prevState, action) => {
@@ -30,7 +35,6 @@ const Show = () => {
     initialState
   );
 
-
   useEffect(() => {
     let isMounted = true;
 
@@ -52,7 +56,7 @@ const Show = () => {
   }, [id]);
 
   // eslint-disable-next-line
-  console.log('show', {show,isLoading,error});
+  console.log('show', { show, isLoading, error });
 
   if (isLoading) {
     return <div>Data is being loaded</div>;
@@ -62,7 +66,33 @@ const Show = () => {
     return <div>error occured:{error}</div>;
   }
 
-  return <div>This is Show Page.</div>;
+  return (
+    <div>
+      <ShowMainData
+        image={show.image}
+        name={show.name}
+        rating={show.rating}
+        summary={show.summary}
+        tags={show.genres}
+      />
+      <div>
+        <h2>Details</h2>
+        <Details
+          status={show.status}
+          network={show.network}
+          premiered={show.premiered}
+        />
+      </div>
+      <div>
+        <h2>Seasons </h2>
+        <Seasons seasons={show._embedded.seasons}/>
+      </div>
+      <div>
+        <h2>Cast  </h2>
+        <Cast cast={show._embedded.cast}/>
+      </div>
+    </div>
+  );
 };
 
 export default Show;

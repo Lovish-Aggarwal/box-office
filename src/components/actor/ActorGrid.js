@@ -7,7 +7,7 @@ const ActorGrid = ({ data }) => {
   return (
     <FlexGrid>
       {data.map(({ person }) => (
-        <ActorCard
+        <ActorCard key={person.id}
           id={person.id}
           name={person.name}
           country={person.country ? person.country : null}
