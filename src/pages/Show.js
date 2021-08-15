@@ -58,7 +58,7 @@ const Show = () => {
   }, [id]);
 
   // eslint-disable-next-line
-  console.log('show', { show, isLoading, error });
+  //console.log('show', { show, isLoading, error });
 
   if (isLoading) {
     return <div>Data is being loaded</div>;
