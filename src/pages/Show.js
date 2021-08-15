@@ -49,6 +49,7 @@ const Show = () => {
         if (isMounted) {
           dispatch({ type: 'FETCH_FAILED', error: err.message });
         }
+        
       });
 
     return () => {
