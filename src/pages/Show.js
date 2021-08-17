@@ -19,11 +19,11 @@ const Show = () => {
   //console.log('show', { show, isLoading, error });
 
   if (isLoading) {
-    return <div>Data is being loaded</div>;
+    return <div style={{textAlign:'center'}}>Data is being loaded</div>;
   }
 
   if (error) {
-    return <div>error occured:{error}</div>;
+    return <div style={{textAlign:'center'}}>error occured:{error}</div>;
   }
 
   return (

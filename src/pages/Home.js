@@ -46,7 +46,7 @@ const Home = () => {
 
   const renderResults = () => {
     if (results && results.length === 0) {
-      return <div>No Results</div>;
+      return <div style={{textAlign:'center'}}>No Results</div>;
     }
 
     if (results && results.length > 0) {
